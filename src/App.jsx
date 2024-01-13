@@ -7,6 +7,7 @@ import axios from "axios"
 
 const API_URL = "https://api.unsplash.com/search/photos"
 const IMAGE_PER_PAGE = 20
+const KEY = 'KnmvUgqyV1EdMnzo_D1ADP8M1YMvecFJX2XJl-ps1Bg'
 
 function App() {
   const searchInput = useRef(null)
@@ -22,7 +23,7 @@ function App() {
         const consult = `${API_URL}?query=${
           searchInput.current.value
         }&page=${currentPage}&per_page=${IMAGE_PER_PAGE}&client_id=${
-          import.meta.env.VITE_API_KEY
+          KEY
         }`
         const result = await axios.get(consult)
         setImages(result.data.results)
